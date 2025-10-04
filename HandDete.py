@@ -83,14 +83,17 @@ def classify_rps(lm):
     # Rock: ทุกนิ้วพับ (อนุโลมโป้งกางเล็กน้อยได้ถ้าอยาก)
     if (ext["index"]==False and ext["middle"]==False and
         ext["ring"]==False and ext["pinky"]==False and ext["thumb"]==False):
+        print("DEBUG: Rock detected, ext =", ext)
         return "Rock"
 
     # Paper: 4 นิ้ว index..pinky เหยียดหมด (โป้งจะกางหรือไม่กางก็ขอแค่ไม่พับติดแน่น)
     if (ext["index"] and ext["middle"] and ext["ring"] and ext["pinky"]):
+        print("DEBUG: Paper detected, ext =", ext)
         return "Paper"
 
     # Scissors: ชี้+กลาง เหยียด, นาง+ก้อย พับ (โป้งไม่บังคับ)
     if (ext["index"] and ext["middle"] and not ext["ring"] and not ext["pinky"]):
+        print("DEBUG: Scissors detected, ext =", ext)
         return "Scissors"
 
     return "Unknown"
